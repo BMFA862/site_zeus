@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Motorcycle & Celebration Graphic -->
+  <g transform="translate(6, 6)" filter="url(#shadow)">
+    <!-- Wheels -->
+    <circle cx="10" cy="36" r="7" fill="none" stroke="#ffffff" stroke-width="3.5" />
+    <circle cx="42" cy="36" r="7" fill="none" stroke="#ffffff" stroke-width="3.5" />
+    <circle cx="10" cy="36" r="2.5" fill="#ffffff" />
+    <circle cx="42" cy="36" r="2.5" fill="#ffffff" />
+
+    <!-- Motorcycle Body / Fairing -->
+    <path d="M 12 36 L 20 28 L 29 28 L 35 22 L 40 22 L 41 26 L 33 32 L 42 36" 
+          fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Fuel Tank / Cockpit Profile -->
+    <path d="M 23 27 C 24 23, 28 22, 33 23 L 31 27 Z" fill="#ffffff" />
+
+    <!-- Windscreen / Headlight Streak -->
+    <path d="M 34 21 L 38 18" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Sparkle / Birthday Star -->
+    <path d="M 40 10 L 41.5 13.5 L 45 15 L 41.5 16.5 L 40 20 L 38.5 16.5 L 35 15 L 38.5 13.5 Z" fill="#fbbf24" />
+  </g>
+</svg>

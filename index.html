@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès Spécial Anniversaire 🎂</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏍️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background elements -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ==============================================
+       PAGE 1 : AUTHENTIFICATION / ÉNIGME MOTO
+       ============================================== -->
+  <section id="auth-page" class="view active">
+    <div class="container auth-container">
+      <header class="auth-header">
+        <span class="badge">🔒 Accès Sécurisé • Défi Motard</span>
+        <h1>Prouve que c'est bien toi !</h1>
+        <p class="subtitle">Pour déverrouiller la surprise d'anniversaire, un véritable connaisseur doit identifier cette machine de légende.</p>
+      </header>
+
+      <div class="auth-card">
+        <!-- Photo display -->
+        <div class="moto-photo-wrapper">
+          <img src="moto.jpg" alt="Moto mystère à deviner" id="challenge-img" class="moto-photo">
+          <div class="photo-overlay-tag">
+            <span>Indice visuel #01</span>
+          </div>
+        </div>
+
+        <!-- Form and interactions -->
+        <div class="auth-form-side">
+          <div class="instructions">
+            <h3>Quel est ce bolide ?</h3>
+            <p>Saisis le modèle exact ou son surnom mythique pour déverrouiller la suite.</p>
+          </div>
+
+          <form id="guess-form" onsubmit="return false;">
+            <div class="input-group">
+              <label for="moto-input">Nom ou modèle de la moto :</label>
+              <div class="input-wrapper">
+                <span class="input-icon">🏍️</span>
+                <input 
+                  type="text" 
+                  id="moto-input" 
+                  placeholder="Ex: CBR 1100 XX, Blackbird..." 
+                  autocomplete="off"
+                  autofocus
+                >
+              </div>
+            </div>
+
+            <div id="feedback-message" class="feedback-msg"></div>
+
+            <div class="form-actions">
+              <button type="submit" id="btn-submit" class="btn btn-primary">
+                <span>Débloquer la surprise</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              
+              <button type="button" id="btn-hint" class="btn btn-ghost">
+                💡 Un indice ?
+              </button>
+            </div>
+          </form>
+
+          <!-- Hint box (collapsible) -->
+          <div id="hint-box" class="hint-box hidden">
+            <div class="hint-content">
+              <strong>Indice :</strong> Reine de la vitesse nippone à la fin des années 90, baptisée d'après un avion furtif supersonique... Elle cube plus d'un litre !
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="auth-footer">
+        <p>Conçu avec amour et passion pour un anniversaire d'exception ⚡</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       PAGE 2 : CÉLÉBRATION INTERACTIVE
+       ============================================== -->
+  <section id="birthday-page" class="view hidden">
+    <!-- Top Bar -->
+    <header class="celebration-nav">
+      <div class="nav-content">
+        <div class="brand">
+          <span class="brand-icon">🎉</span>
+          <span class="brand-text">Nicolas • Edition Anniversaire</span>
+        </div>
+        <div class="nav-actions">
+          <audio id="bday-audio" src="musicanniv.mp3" preload="auto"></audio>
+          <button id="btn-music" class="action-pill" title="Musique d'anniversaire">
+            <span class="pill-icon">🎵</span>
+            <span class="pill-label">Musique</span>
+          </button>
+          <button id="btn-confetti" class="action-pill primary" title="Lancer des confettis">
+            <span class="pill-icon">🎊</span>
+            <span class="pill-label">Confettis</span>
+          </button>
+          <button id="btn-relock" class="action-pill ghost" title="Reverrouiller">
+            <span class="pill-icon">🔒</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <div class="hero-tag">✨ Un jour tout particulier</div>
+        <h1 class="hero-title">
+          Joyeux Anniversaire <span class="gradient-text">Nicolas !</span> 🎂
+        </h1>
+        <p class="hero-subtitle">
+          Plein gaz sur une nouvelle année pleine d'adrénaline, de virages parfaits, de projets fous et de bonheur sans limite.
+        </p>
+      </section>
+
+      <!-- Grid of Interactive Features -->
+      <div class="interactive-grid">
+        
+        <!-- MODULE 1 : COMPTE-TOURS MOTO INTERACTIF (RPM / TACHOMÈTRE) -->
+        <div class="card module-tachometer">
+          <div class="card-header">
+            <div class="badge-tag">Interactif • Son 3D</div>
+            <h2>Fais rugir le 1100 XX 🏍️💨</h2>
+            <p>Maintiens la poignée de gaz pour monter dans les tours et entendre le moteur !</p>
+          </div>
+
+          <div class="tacho-wrapper">
+            <div class="tacho-dial">
+              <!-- SVG Gauge -->
+              <svg viewBox="0 0 240 160" class="gauge-svg">
+                <!-- Background track -->
+                <path class="gauge-track" d="M 30 140 A 90 90 0 0 1 210 140" />
+                <!-- Redline track -->
+                <path class="gauge-redline" d="M 180 65 A 90 90 0 0 1 210 140" />
+                <!-- Active progress track -->
+                <path id="gauge-progress" class="gauge-progress" d="M 30 140 A 90 90 0 0 1 210 140" />
+              </svg>
+              <!-- Needle -->
+              <div id="tacho-needle" class="needle"></div>
+              <!-- Center display -->
+              <div class="tacho-display">
+                <span id="rpm-value" class="rpm-digits">1 100</span>
+                <span class="rpm-unit">RPM x1000</span>
+              </div>
+            </div>
+
+            <div class="tacho-status" id="tacho-status">
+              Moteur au ralenti... Prêt à envoyer ?
+            </div>
+
+            <!-- Throttle Handle / Button -->
+            <button id="throttle-btn" class="throttle-handle">
+              <span class="handle-grip"></span>
+              <span class="handle-text">✊ MAINTIENS POUR ACCÉLÉRER</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- MODULE 2 : CARTE À GRATTER MYSTÈRE -->
+        <div class="card module-scratch">
+          <div class="card-header">
+            <div class="badge-tag">Surprise tactile</div>
+            <h2>Carte Secrète d'Anniversaire 🎁</h2>
+            <p>Gratte la surface avec ta souris ou ton doigt pour révéler le message secret !</p>
+          </div>
+
+          <div class="scratch-container">
+            <!-- Hidden secret message underneath -->
+            <div class="scratch-secret" id="scratch-secret">
+              <div class="secret-icon">🌟</div>
+              <h3>Le Secret de la Victoire</h3>
+              <p>"Vieillir est obligatoire, mais grandir est facultatif ! Reste toujours ce pilote passionné et cette personne formidable."</p>
+              <div class="secret-gift">
+                <span>Pass VIP : Journée Barbecue & Virée Moto 100% Validée ! 🍻</span>
+              </div>
+            </div>
+            <!-- Canvas on top that user scratches -->
+            <canvas id="scratch-canvas" width="340" height="200"></canvas>
+          </div>
+          <button id="btn-reset-scratch" class="btn-micro">Recharger la carte</button>
+        </div>
+
+        <!-- MODULE 3 : TABLEAU DE BORD STATISTIQUES DU PILOTE -->
+        <div class="card module-stats">
+          <div class="card-header">
+            <div class="badge-tag">Télémétrie</div>
+            <h2>Fiche Télémétrique du Pilote 📊</h2>
+            <p>Les métriques certifiées conformes pour cette nouvelle année :</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-num" data-target="300">0</span>
+              <span class="stat-suffix">km/h</span>
+              <span class="stat-label">Vitesse max de bonne humeur</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="100">0</span>
+              <span class="stat-suffix">%</span>
+              <span class="stat-label">Taux d'adrénaline & passion</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="365">0</span>
+              <span class="stat-suffix">J</span>
+              <span class="stat-label">Jours de bonheur à venir</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="1100">0</span>
+              <span class="stat-suffix">cm³</span>
+              <span class="stat-label">Cylindrée du cœur</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 4 : LE LIVRE D'OR / MOTS D'AMITIÉ -->
+        <div class="card module-messages">
+          <div class="card-header">
+            <div class="badge-tag">Messages & Vœux</div>
+            <h2>Mots & Pensées d'Anniversaire 💌</h2>
+            <p>Clique sur les cartes pour découvrir les messages personnalisés :</p>
+          </div>
+
+          <div class="cards-deck">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <span class="flip-icon">🏍️</span>
+                  <h4>Le Pilote Légendaire</h4>
+                  <p class="click-hint">Clique pour lire ➜</p>
+                </div>
+                <div class="flip-back">
+                  <p>"Que tes trajectoires soient toujours parfaites, que le bitume soit chaud et la route dégagée. Santé et gaz en grand !"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <span class="flip-icon">⚡</span>
+                  <h4>L'Énergie Pure</h4>
+                  <p class="click-hint">Clique pour lire ➜</p>
+                </div>
+                <div class="flip-back">
+                  <p>"Comme le Blackbird, tu traverses les années avec panache, classe et puissance. Garde toujours ce sourire d'enfer !"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <span class="flip-icon">🍻</span>
+                  <h4>L'Instant Célébration</h4>
+                  <p class="click-hint">Clique pour lire ➜</p>
+                </div>
+                <div class="flip-back">
+                  <p>"Ce soir c'est arrêt au stand obligatoire : détente, trinquer avec les vrais et savourer ton gâteau d'anniv !"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add quick personalized note -->
+          <div class="add-note-box">
+            <h4>Ajouter un mot souvenir</h4>
+            <div class="note-input-row">
+              <input type="text" id="custom-note-input" placeholder="Ton petit mot ou souvenir..." maxlength="100">
+              <button id="btn-add-note" class="btn btn-secondary">Ajouter ✨</button>
+            </div>
+            <div id="custom-notes-list" class="custom-notes-list"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Final celebration CTA -->
+      <div class="grand-finale">
+        <h3>Prêt pour célébrer ça comme il se doit ?</h3>
+        <p>Prends soin de toi et passe la plus belle des journées !</p>
+        <button id="btn-big-party" class="btn btn-primary btn-large">
+          <span>Envoyer une explosion de bonheur 🎉</span>
+        </button>
+      </div>
+    </main>
+
+    <footer class="celebration-footer">
+      <p>Joyeux Anniversaire Nicolas • Fait sur-mesure avec passion • 2026</p>
+    </footer>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
